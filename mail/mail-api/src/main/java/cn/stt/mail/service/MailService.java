@@ -6,4 +6,6 @@ package cn.stt.mail.service;
  * Created by shitongtong on 2017/8/10.
  */
 public interface MailService {
+
+    void sendSimpleMessage();
 }
