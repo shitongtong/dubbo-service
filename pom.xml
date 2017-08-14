@@ -11,6 +11,7 @@
     <modules>
         <module>redis</module>
         <module>mail</module>
+        <module>message</module>
     </modules>
 
     <properties>
@@ -19,9 +20,13 @@
         <zkclient.version>0.10</zkclient.version>
         <spring.version>4.3.9.RELEASE</spring.version>
         <mail.version>1.4.7</mail.version>
+        <junit.version>4.12</junit.version>
+        <slf4j-api.version>1.7.25</slf4j-api.version>
+        <logback.version>1.2.3</logback.version>
+        <commons-lang3.version>3.6</commons-lang3.version>
+        <commons-httpclient.version>3.1</commons-httpclient.version>
 
         <jackson.version>2.8.2</jackson.version>
-        <skip_maven_deploy>false</skip_maven_deploy>
     </properties>
 
     <dependencyManagement>
@@ -95,7 +100,7 @@
             <dependency>
                 <groupId>junit</groupId>
                 <artifactId>junit</artifactId>
-                <version>4.12</version>
+                <version>${junit.version}</version>
                 <scope>test</scope>
             </dependency>
             <!-- test -->
@@ -104,17 +109,17 @@
             <dependency>
                 <groupId>org.slf4j</groupId>
                 <artifactId>slf4j-api</artifactId>
-                <version>1.7.25</version>
+                <version>${slf4j-api.version}</version>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-core</artifactId>
-                <version>1.2.3</version>
+                <version>${logback.version}</version>
             </dependency>
             <dependency>
                 <groupId>ch.qos.logback</groupId>
                 <artifactId>logback-classic</artifactId>
-                <version>1.2.3</version>
+                <version>${logback.version}</version>
             </dependency>
             <!-- 日志 e -->
 
@@ -122,7 +127,12 @@
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
-                <version>3.6</version>
+                <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-httpclient</groupId>
+                <artifactId>commons-httpclient</artifactId>
+                <version>${commons-httpclient.version}</version>
             </dependency>
             <!-- util -->
 
@@ -153,8 +163,6 @@
                 <version>3.1.0</version>
             </dependency>
 
-
-
             <dependency>
                 <groupId>commons-logging</groupId>
                 <artifactId>commons-logging</artifactId>
@@ -175,11 +183,7 @@
                 <artifactId>httpclient</artifactId>
                 <version>4.5.2</version>
             </dependency>
-            <dependency>
-                <groupId>commons-httpclient</groupId>
-                <artifactId>commons-httpclient</artifactId>
-                <version>3.1</version>
-            </dependency>
+
 
 
 

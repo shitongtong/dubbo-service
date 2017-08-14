@@ -1,6 +1,5 @@
 package cn.stt.mail.dao;
 
-import com.sun.istack.internal.NotNull;
 import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +33,7 @@ public class MailDao {
      * @param ccs
      * @param bccs
      */
-    public void sendSimpleMessage(@NotNull String subject, @NotNull String text, @NotNull String from, String[] tos, String[] ccs, String[] bccs) {
+    public void sendSimpleMessage(String subject, String text, String from, String[] tos, String[] ccs, String[] bccs) {
         // 建立邮件消息
         SimpleMailMessage mailMessage = new SimpleMailMessage();
         mailMessage.setFrom(from);
