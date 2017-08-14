@@ -8,8 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by stt on 2017/8/12.
  */
@@ -25,12 +23,30 @@ public class MailDaoTest {
 
     @Test
     public void sendSimpleMessage() throws Exception {
+        // "<html><head></head><body><h1>你好：附件中有学习资料！</h1></body></html>"
         String subject = "springmail simple message";
-        String text = "springmail simple message<br/>springmail simple message";
-        String from = "767035687@qq.com";
-        String to = "1249655484@qq.com";
-        mailDao.sendSimpleMessage(subject, text, from, to);
-        LOGGER.info("发送成功！");
+        String text = "springmail simple message</br>springmail simple message";
+        String from = "xxxxxxxxx@qq.com";
+        String to = "xxxxxxxxxxx@qq.com";
+        String cc = "xxxxxxxxxxxxxx@163.com";
+        String bcc = "";
+        mailDao.sendSimpleMessage(subject, text, from, to, cc, bcc);
+        LOGGER.info("邮件发送成功！");
+    }
+
+    @Test
+    public void sendMessageWithImageAndAttached() throws Exception {
+        String subject = "springmail sendMessageWithImageAndAttached";
+        String text = "springmail 附件和图片：";
+        String from = "xxxxxx@qq.com";
+        String to = "xxxxxxx@qq.com";
+        String cc = "xxxxxxxxxx@163.com";
+        String bcc = "";
+        String imgPath = "D:\\图片\\小幺鸡.png";
+        String attachmentPath = "D:\\图片\\文档.doc";
+        String attachmentName = "文档.doc";
+        mailDao.sendMessageWithImageAndAttached(subject, text, imgPath, attachmentPath, attachmentName, from, to, cc, bcc);
+        LOGGER.info("邮件发送成功！");
     }
 
 }

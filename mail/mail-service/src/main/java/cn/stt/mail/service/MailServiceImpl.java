@@ -17,6 +17,6 @@ public class MailServiceImpl implements MailService {
 
     @Override
     public void sendSimpleMessage() {
-        mailDao.sendSimpleMessage("","","","");
+        mailDao.sendSimpleMessage(null,"","","","","");
     }
 }

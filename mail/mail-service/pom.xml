@@ -17,6 +17,7 @@
             <artifactId>mail-api</artifactId>
             <version>1.0.0</version>
         </dependency>
+
         <!-- mail -->
         <dependency>
             <groupId>javax.mail</groupId>
@@ -27,6 +28,7 @@
             <artifactId>spring-integration-mail</artifactId>
         </dependency>
         <!-- mail -->
+
         <!-- dubbo -->
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -37,12 +39,14 @@
             <artifactId>zkclient</artifactId>
         </dependency>
         <!-- dubbo -->
+
         <!-- spring -->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-web</artifactId>
         </dependency>
         <!-- spring -->
+
         <!-- test -->
         <dependency>
             <groupId>org.springframework</groupId>
@@ -53,6 +57,7 @@
             <artifactId>junit</artifactId>
         </dependency>
         <!-- test -->
+
         <!-- 日志 s -->
         <dependency>
             <groupId>org.slf4j</groupId>
@@ -67,6 +72,13 @@
             <artifactId>logback-classic</artifactId>
         </dependency>
         <!-- 日志 e -->
+
+        <!-- util -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+        <!-- util -->
     </dependencies>
 
 </project>
