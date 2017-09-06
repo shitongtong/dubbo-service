@@ -1,0 +1,18 @@
+#应用程序端口配置
+server: 
+  port: 40004
+#  tomcat:
+#    access-log-enabled: true
+
+#日志配置    
+logging: 
+#    file: 
+#    path: 
+    config: classpath:logback.xml
+#    level: 
+#        org.springframework.web: ERROR
+#        org.springframework.beans: ERROR
+
+dubbo:
+  registry:
+    address: zookeeper://192.168.1.219:2181

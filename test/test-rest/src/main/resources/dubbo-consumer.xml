@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd          
+    http://code.alibabatech.com/schema/dubbo          
+    http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!-- 消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
+    <dubbo:application name="test-rest"/>
+    <dubbo:registry address="${dubbo.registry.address}"/>
+    <!-- 启动时检查提供者是否存在，true报错，false忽略 -->
+    <dubbo:consumer check="false"/>
+    <dubbo:monitor protocol="registry" />
+
+    <!-- 生成远程服务代理，可以和本地bean一样使用xxxService -->
+    <dubbo:reference id="testService" interface="cn.stt.test.service.TestService"  check="false" group="test"/>
+    <dubbo:reference id="test1Service" interface="cn.stt.test.service.TestService"  check="false" group="test1"/>
+    <dubbo:reference id="test2Service" interface="cn.stt.test.service.TestService"  check="false" group="test2"/>
+
+
+</beans>

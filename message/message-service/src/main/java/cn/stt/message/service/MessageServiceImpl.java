@@ -16,7 +16,7 @@ public class MessageServiceImpl implements MessageService {
     private MessageDao messageDao;
 
     @Override
-    public String sendMessage(String phone, String content) throws Exception {
-        return messageDao.sendMessage(phone, content);
+    public String sendMessage(String phone, String message) throws Exception {
+        return messageDao.sendMessage(phone, message);
     }
 }

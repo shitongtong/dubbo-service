@@ -10,8 +10,8 @@ public interface MessageService {
      * 发送短信息
      *
      * @param phone   多个号码使用","分割
-     * @param content 发送的内容
+     * @param message 发送的消息内容
      * @return success 成功
      */
-    String sendMessage(String phone, String content) throws Exception;
+    String sendMessage(String phone, String message) throws Exception;
 }

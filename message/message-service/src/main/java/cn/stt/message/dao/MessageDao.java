@@ -38,13 +38,13 @@ public class MessageDao {
      * 发送短信息
      *
      * @param phone   多个号码使用","分割
-     * @param content 发送的内容
+     * @param message 发送的内容
      * @return success:成功
      */
-    public String sendMessage(String phone, String content) throws Exception {
+    public String sendMessage(String phone, String message) throws Exception {
         boolean needstatus = true;  // 是否需要状态报告，需要true，不需要false
         String extno = null;    // 扩展码
-        String returnString = sendMessage(phone, content, needstatus, extno);
+        String returnString = sendMessage(phone, message, needstatus, extno);
         int state = -1;
         if (StringUtils.isNotBlank(returnString)) {   //不为空则解析
             String[] returnStr = returnString.split("\n");
@@ -56,13 +56,13 @@ public class MessageDao {
 
     /**
      * @param phone
-     * @param msg
+     * @param message
      * @param needstatus
      * @param extno
      * @return
      * @throws Exception
      */
-    private String sendMessage(String phone, String msg, boolean needstatus, String extno) throws Exception {
+    private String sendMessage(String phone, String message, boolean needstatus, String extno) throws Exception {
         LOGGER.info("url={},account={},password={}", url, account, password);
         HttpClient client = new HttpClient(new HttpClientParams(), new SimpleHttpConnectionManager(true));
         GetMethod method = new GetMethod();
@@ -74,7 +74,7 @@ public class MessageDao {
                     new NameValuePair("pswd", password),
                     new NameValuePair("mobile", phone),
                     new NameValuePair("needstatus", String.valueOf(needstatus)),
-                    new NameValuePair("msg", msg),
+                    new NameValuePair("msg", message),
                     new NameValuePair("extno", extno),
             });
             int result = client.executeMethod(method);

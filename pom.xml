@@ -12,9 +12,11 @@
         <module>redis</module>
         <module>mail</module>
         <module>message</module>
+        <module>test</module>
     </modules>
 
     <properties>
+        <spring-boot.version>1.5.6.RELEASE</spring-boot.version>
         <jedis.version>2.9.0</jedis.version>
         <dubbo.version>2.5.3</dubbo.version>
         <zkclient.version>0.10</zkclient.version>
@@ -32,6 +34,25 @@
     <dependencyManagement>
 
         <dependencies>
+
+            <!-- Override Spring Data release train provided by Spring Boot -->
+            <dependency>
+                <groupId>org.springframework.data</groupId>
+                <artifactId>spring-data-releasetrain</artifactId>
+                <version>Fowler-SR2</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <!-- Import dependency management from Spring Boot -->
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <!-- Spring Boot -->
+
             <!-- mail -->
             <dependency>
                 <groupId>javax.mail</groupId>
@@ -184,9 +205,6 @@
                 <version>4.5.2</version>
             </dependency>
 
-
-
-
             <dependency>
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-collections4</artifactId>
@@ -205,14 +223,11 @@
                 <version>1.9.3</version>
             </dependency>
 
-
-            
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-aspects</artifactId>
                 <version>${spring.version}</version>
             </dependency>
-            
 
             <!-- spring e -->
 
