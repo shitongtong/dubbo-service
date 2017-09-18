@@ -7,14 +7,20 @@
 	http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
 
     <dubbo:application name="test-service"/>
-    <!--<dubbo:protocol port="${dubbo.protocol.port}"/>-->
-    <dubbo:protocol name="rest" port="8888"/>
+    <dubbo:protocol port="${dubbo.protocol.port}"/>
+    <!--<dubbo:protocol name="rest" port="8888"/>-->
     <dubbo:registry address="${dubbo.registry.address}"/>
     <!--<dubbo:monitor protocol="registry"/>-->
 
-    <dubbo:service interface="cn.stt.test.service.TestService" ref="testServiceImpl" group="test"/>
-    <!--<dubbo:service interface="cn.stt.test.service.TestService" ref="test1ServiceImpl" group="test1"/>-->
-    <!--<dubbo:service interface="cn.stt.test.service.TestService" ref="test2ServiceImpl" group="test2"/>-->
+    <dubbo:reference id="test2Service" interface="cn.stt.test.service.TestService"  check="false" group="test2"/>
+    <!--  -->
+    <dubbo:service interface="cn.stt.test.service.TestService"  ref="testServiceImpl" group="test" />
+    <dubbo:service interface="cn.stt.test.service.TestService" ref="test1ServiceImpl" group="test1"/>
+    <dubbo:service interface="cn.stt.test.service.TestService" ref="test2ServiceImpl" group="test2"/>
 
+    <dubbo:service group="merge" interface="cn.stt.test.service.MergeService" ref="mergeServiceImpl"/>
+    <dubbo:service group="merge2" interface="cn.stt.test.service.MergeService" ref="mergeServiceImpl2"/>
+    <dubbo:service group="merge3" interface="cn.stt.test.service.MergeService" ref="mergeServiceImpl3"/>
 
+    <dubbo:service interface="cn.stt.test.service.NotifyService" ref="notifyServiceImpl"/>
 </beans>
